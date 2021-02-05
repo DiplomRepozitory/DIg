@@ -6,6 +6,8 @@ import com.MyHandler;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -151,6 +153,59 @@ public class Work extends JFrame {
         panelForWork.add(labelIndicatorOnPanel220);
         panelForWork.add(labelIndicatorOnPanel24V);
         panelForWork.add(labelVKL);
+
+        addMyListener();
+
+    }
+
+    private void addMyListener(){
+        labelVKL.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getY()<labelVKL.getHeight()/3) {
+                    labelVKL.setIcon(new ImageIcon("Image/Тумблер Вверх.png"));
+                    labelIndicatorOnPanelVKL.setIcon(new ImageIcon("Image/Желтый индикатор на панель включения.png"));
+                    labelIndicatorOnPanelDU.setIcon(new ImageIcon("Image/Индикатор на панель включения.png"));
+                }else {
+                    if (e.getY() > 2 * (labelVKL.getHeight() / 3)) {
+                        labelVKL.setIcon(new ImageIcon("Image/Тумблер вниз.png"));
+                        labelIndicatorOnPanelVKL.setIcon(new ImageIcon("Image/Желтый индикатор на панель включения.png"));
+                        labelIndicatorOnPanelDU.setIcon(new ImageIcon("Image/Желтый индикатор на панель включения.png"));
+                    } else {
+                        labelVKL.setIcon(new ImageIcon("Image/Тумблер Середина.png"));
+                        labelIndicatorOnPanelVKL.setIcon(new ImageIcon("Image/Индикатор на панель включения.png"));
+                        labelIndicatorOnPanelDU.setIcon(new ImageIcon("Image/Индикатор на панель включения.png"));
+                    }
+                }
+            }
+        });
+
+        labelRight.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+        });
+
+        labelLeft.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+        });
+
+        labelEnter.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+        });
+
+        labelDel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+        });
 
     }
 }

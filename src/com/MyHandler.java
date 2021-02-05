@@ -10,6 +10,7 @@ public class MyHandler {
 
     private MyHandler() {
         selectForms();
+        System.out.println(getClass().getResource("Image/Индикатор на панель включения.png"));
     }
 
     public static MyHandler getInstance() {
@@ -21,6 +22,7 @@ public class MyHandler {
     }
 
     public void selectForms() {
+
         if (stepReload == 0) {
             mainMenu = MainMenu.menuInstance();
             mainMenu.setVisible(true);
